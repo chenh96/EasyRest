@@ -11,6 +11,7 @@ const METHODS: { label: string; value: RequestMethod }[] = [
   { label: 'GET', value: 'GET' },
   { label: 'POST', value: 'POST' },
   { label: 'DELETE', value: 'DELETE' },
+  { label: 'PUT', value: 'PUT' },
 ]
 
 export default function RequestUrl({

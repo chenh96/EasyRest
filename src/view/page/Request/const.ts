@@ -1,5 +1,5 @@
 export type ParamType = 'Params' | 'Body' | 'Header'
-export type RequestMethod = 'GET' | 'POST' | 'DELETE'
+export type RequestMethod = 'GET' | 'POST' | 'DELETE' | 'PUT'
 
 export type Pair = [string, string]
 

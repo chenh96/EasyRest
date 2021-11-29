@@ -28,14 +28,11 @@ export const resultCodeCSS = (font: string) =>
     width: 'calc(100% - 8px)',
     height: 'calc(100% - 40px)',
     margin: '4px',
-    // padding: '8px',
-    paddingRight: '4px',
-    wordBreak: 'break-all',
-    whiteSpace: 'break-spaces',
     fontFamily: font,
     overflow: 'auto',
     '::-webkit-scrollbar': {
       width: '8px',
+      height: '8px',
     },
     '::-webkit-scrollbar-thumb': {
       backgroundColor: 'rgba(240, 240, 240)',
