@@ -1,13 +1,11 @@
 import localforage from 'localforage'
 
-export type Key = 'Requests' | 'ActiveIndex' | 'Timeout' | 'MaxTabs' | 'CodeFont'
-// export const keys = {
-//   REQUESTS: 'Requests',
-//   ACTIVE_INDEX: 'ActiveIndex',
-//   TIMEOUT: 'Timeout',
-//   MAX_TABS: 'MaxTabs',
-//   CODE_FONT: 'CodeFont',
-// }
+export type Key =
+  | 'Requests'
+  | 'ActiveIndex'
+  | 'Timeout'
+  | 'MaxTabs'
+  | 'CodeFont'
 
 export async function saveData<T>(key: Key, value: T): Promise<T | null> {
   try {

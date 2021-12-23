@@ -67,6 +67,7 @@ export default function Tabs({
         <ReactSortable
           list={requests}
           setList={onSort}
+          animation={200}
           onStart={() => setDragging(true)}
           onEnd={() => setTimeout(() => setDragging(false), 100)}
         >

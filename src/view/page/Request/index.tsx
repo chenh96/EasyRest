@@ -18,15 +18,15 @@ export default function Request() {
     if (firstLoad) {
       Promise.all([
         expectData('Requests', [newRequest()]),
-        expectData('ActiveIndex', 0),
+        // expectData('ActiveIndex', 0),
         expectData('MaxTabs', 10),
         expectData('CodeFont', 'Consolas'),
       ])
         .then((results) => {
           setReqeusts(results[0])
-          setActiveIndex(results[1])
-          setMaxTabs(results[2])
-          setCodeFont(results[3])
+          // setActiveIndex(results[1])
+          setMaxTabs(results[1])
+          setCodeFont(results[2])
         })
         .finally(() => setTimeout(() => setFirstLoad(false), 100))
     }
