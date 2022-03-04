@@ -3,15 +3,15 @@ import { css } from '@emotion/css'
 export const methodCSS = css({
   width: '96px',
   '> button:first-of-type': {
-    borderRadius: '4px 0 0 4px',
-  },
+    borderRadius: '4px 0 0 4px'
+  }
 })
 
 export const urlCSS = css({
   borderRadius: 0,
   margin: '0 4px',
   padding: '0 8px',
-  width: 'calc(100% - 184px)',
+  width: 'calc(100% - 184px)'
 })
 
 export const requestCSS = css({
@@ -22,6 +22,6 @@ export const requestCSS = css({
   backgroundColor: 'rgba(50, 150, 50)',
   color: 'rgba(255, 255, 255)',
   ':active': {
-    backgroundColor: 'rgba(30, 130, 30)',
-  },
+    backgroundColor: 'rgba(30, 130, 30)'
+  }
 })

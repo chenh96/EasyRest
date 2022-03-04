@@ -11,7 +11,7 @@ export const containerCSS = css({
   border: '1px solid rgba(0, 0, 0, 0.1)',
   borderRadius: '6px',
   backgroundColor: 'rgba(250, 250, 250)',
-  overflow: 'hidden',
+  overflow: 'hidden'
 })
 
 export const resultStatusCSS = css({
@@ -20,7 +20,7 @@ export const resultStatusCSS = css({
   overflow: 'hidden',
   textOverflow: 'ellipsis',
   padding: '0 4px',
-  color: 'rgba(100, 120, 140)',
+  color: 'rgba(100, 120, 140)'
 })
 
 export const resultCodeCSS = (font: string) =>
@@ -32,11 +32,11 @@ export const resultCodeCSS = (font: string) =>
     overflow: 'auto',
     '::-webkit-scrollbar': {
       width: '8px',
-      height: '8px',
+      height: '8px'
     },
     '::-webkit-scrollbar-thumb': {
       backgroundColor: 'rgba(240, 240, 240)',
       border: '1px solid rgba(0, 0, 0, 0.1)',
-      borderRadius: '4px',
-    },
+      borderRadius: '4px'
+    }
   })

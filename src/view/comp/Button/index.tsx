@@ -6,7 +6,7 @@ export default function Button({
   onClick = () => {},
   className,
   children,
-  disabled = false,
+  disabled = false
 }: {
   onClick?: (e: MouseEvent) => void
   className?: string

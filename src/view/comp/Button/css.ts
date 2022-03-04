@@ -14,10 +14,10 @@ export const containerCSS = (disabled: boolean) =>
     transition: 'background-color 0.1s ease',
     ':active': disabled
       ? {
-          backgroundColor: 'inherit !important',
+          backgroundColor: 'inherit !important'
         }
       : {
-          backgroundColor: 'rgba(240, 240, 240)',
+          backgroundColor: 'rgba(240, 240, 240)'
         },
-    opacity: disabled ? 0.5 : 1,
+    opacity: disabled ? 0.5 : 1
   })

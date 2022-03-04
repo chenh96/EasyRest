@@ -8,6 +8,6 @@ export const containerCSS = css({
   resize: 'none',
   transition: 'border 0.1s ease',
   ':focus': {
-    border: '1px solid rgba(0, 100, 200)',
-  },
+    border: '1px solid rgba(0, 100, 200)'
+  }
 })

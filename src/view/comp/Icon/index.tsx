@@ -5,7 +5,7 @@ export default function Icon({
   src,
   alt = '图标',
   size = 16,
-  className,
+  className
 }: {
   src: string
   alt?: string

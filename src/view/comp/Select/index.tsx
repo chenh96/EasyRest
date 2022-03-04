@@ -5,7 +5,7 @@ import {
   containerCSS,
   displayCSS,
   optionCSS,
-  optionsCSS,
+  optionsCSS
 } from './css'
 import Button from '../Button'
 import Icon from '../Icon'
@@ -16,7 +16,7 @@ export default function Select({
   value,
   onSelect = () => {},
   placeholder = '请选择',
-  className,
+  className
 }: {
   options: { label: string; value: string }[]
   value?: string

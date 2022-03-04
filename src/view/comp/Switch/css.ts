@@ -5,7 +5,7 @@ export const containerCSS = css({
   border: '1px solid rgba(0, 0, 0, 0.1)',
   borderRadius: '4px',
   overflow: 'hidden',
-  whiteSpace: 'nowrap',
+  whiteSpace: 'nowrap'
 })
 
 export const buttonCSS = (active: boolean) =>
@@ -18,9 +18,9 @@ export const buttonCSS = (active: boolean) =>
     // color: active ? 'rgba(255, 255, 255)' : 'rgba(40, 60, 80)',
     transition: 'background-color 0.1s ease, color 0.1s ease',
     ':active': {
-      backgroundColor: active ? 'rgba(230, 230, 230)' : 'rgba(255, 255, 255)',
+      backgroundColor: active ? 'rgba(230, 230, 230)' : 'rgba(255, 255, 255)'
     },
     ':last-of-type': {
-      borderRight: 'none',
-    },
+      borderRight: 'none'
+    }
   })

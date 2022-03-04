@@ -16,5 +16,5 @@ export const containerCSS = css({
     verticalAlign: 'top',
     textDecoration: 'none',
     fontFamily: 'Microsoft YaHei'
-  },
+  }
 })

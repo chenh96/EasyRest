@@ -9,7 +9,7 @@ export const paramsPartCSS = css({
   padding: '4px',
   border: '1px solid rgba(0, 0, 0, 0.1)',
   borderRadius: '6px',
-  backgroundColor: 'rgba(250, 250, 250)',
+  backgroundColor: 'rgba(250, 250, 250)'
 })
 
 export const requestBodyCSS = (font: string) =>
@@ -23,11 +23,11 @@ export const requestBodyCSS = (font: string) =>
     wordBreak: 'break-word',
     fontFamily: font,
     '::-webkit-scrollbar': {
-      width: '8px',
+      width: '8px'
     },
     '::-webkit-scrollbar-thumb': {
       backgroundColor: 'rgba(240, 240, 240)',
       border: '1px solid rgba(0, 0, 0, 0.1)',
-      borderRadius: '4px',
-    },
+      borderRadius: '4px'
+    }
   })

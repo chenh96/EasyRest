@@ -21,7 +21,7 @@ export default function Tabs({
   onActive = () => {},
   onAdd = () => {},
   onClose = () => {},
-  onCopy = () => {},
+  onCopy = () => {}
 }: {
   requests: RequestDetails[]
   active: number
@@ -44,7 +44,7 @@ export default function Tabs({
             const currentLeft = $scroller.current.scrollLeft
             $scroller.current.scrollTo({
               left: currentLeft - SCROLL_STEP,
-              behavior: 'smooth',
+              behavior: 'smooth'
             })
           }
         }}
@@ -59,7 +59,7 @@ export default function Tabs({
           if ($scroller.current) {
             const currentLeft = $scroller.current.scrollLeft
             $scroller.current.scrollTo({
-              left: currentLeft + e.deltaY,
+              left: currentLeft + e.deltaY
             })
           }
         }}
@@ -90,7 +90,7 @@ export default function Tabs({
             const currentLeft = $scroller.current.scrollLeft
             $scroller.current.scrollTo({
               left: currentLeft + SCROLL_STEP,
-              behavior: 'smooth',
+              behavior: 'smooth'
             })
           }
         }}
@@ -106,7 +106,7 @@ export default function Tabs({
               const currentWidth = $scroller.current.scrollWidth
               $scroller.current.scrollTo({
                 left: currentWidth,
-                behavior: 'smooth',
+                behavior: 'smooth'
               })
             }
           })
@@ -124,7 +124,7 @@ export default function Tabs({
               const currentWidth = $scroller.current.scrollWidth
               $scroller.current.scrollTo({
                 left: currentWidth,
-                behavior: 'smooth',
+                behavior: 'smooth'
               })
             }
           })

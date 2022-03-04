@@ -5,7 +5,7 @@ import load from '../../asset/load.png'
 
 export default function Load({
   show,
-  cover = false,
+  cover = false
 }: {
   show: boolean
   cover?: boolean

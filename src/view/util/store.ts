@@ -30,7 +30,7 @@ export async function expectData<T>(key: Key, value: T): Promise<T> {
     data = await saveData(key, value)
   }
   if (data === null) {
-    data = value
+    data = await value
   }
   return data
 }

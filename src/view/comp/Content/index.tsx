@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import { containerCSS } from './css'
 
 export default function Content({
-  children,
+  children
 }: {
   children?: string | ReactNode | ReactNode[]
 }) {

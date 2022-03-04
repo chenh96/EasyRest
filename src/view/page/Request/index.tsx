@@ -20,7 +20,7 @@ export default function Request() {
         expectData('Requests', [newRequest()]),
         // expectData('ActiveIndex', 0),
         expectData('MaxTabs', 10),
-        expectData('CodeFont', 'Consolas'),
+        expectData('CodeFont', 'Consolas')
       ])
         .then((results) => {
           setReqeusts(results[0])
@@ -75,7 +75,7 @@ export default function Request() {
               const newRequests = [...prev]
               newRequests.splice(activeIndex, 0, {
                 ...requests[activeIndex],
-                id: randomId(),
+                id: randomId()
               })
               return newRequests
             })
@@ -113,6 +113,6 @@ function newRequest(): RequestDetails {
     // data: [['', '']],
     headers: [['', '']],
     body: '',
-    result: '',
+    result: ''
   }
 }

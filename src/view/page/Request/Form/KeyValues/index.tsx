@@ -7,7 +7,7 @@ import close from '../../../../asset/close.png'
 
 export default function Params({
   params,
-  onChange = () => {},
+  onChange = () => {}
 }: {
   params: Pair[]
   onChange?: (params: Pair[]) => void

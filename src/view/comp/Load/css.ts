@@ -9,16 +9,16 @@ export const containerCSS = (show: boolean, cover: boolean) =>
     bottom: 0,
     backgroundColor: cover ? 'rgba(255, 255, 255)' : 'rgba(0, 0, 0, 0)',
     opacity: show ? 1 : 0,
-    transition: 'opacity 0.2s ease',
+    transition: 'opacity 0.2s ease'
   })
 
 const rotateAnimation = keyframes({
   '0%': {
-    transform: 'rotate(0)',
+    transform: 'rotate(0)'
   },
   '100%': {
-    transform: 'rotate(360deg)',
-  },
+    transform: 'rotate(360deg)'
+  }
 })
 
 export const iconCSS = css({
@@ -36,6 +36,6 @@ export const iconCSS = css({
   backgroundColor: 'rgba(255, 255, 255)',
   boxShadow: '0 5px 15px rgba(0, 0, 0, 0.1)',
   '> img': {
-    animation: `${rotateAnimation} 2s linear infinite`,
-  },
+    animation: `${rotateAnimation} 2s linear infinite`
+  }
 })

@@ -10,8 +10,8 @@ app.whenReady().then(() => {
     title: '',
     webPreferences: {
       webSecurity: false,
-      preload: join(__dirname, 'preload.js'),
-    },
+      preload: join(__dirname, 'preload.js')
+    }
   })
 
   // window.loadURL('http://127.0.0.1:3000/')

@@ -7,5 +7,5 @@ contextBridge.exposeInMainWorld('ipc', {
   },
   send<T>(action: string, data?: T) {
     ipcRenderer.send(action, data)
-  },
+  }
 })

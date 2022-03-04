@@ -9,7 +9,7 @@ export default function Input({
   maxLength,
   mutliple = false,
   placeholder,
-  className,
+  className
 }: {
   value?: string
   onInput?: (value: string) => void

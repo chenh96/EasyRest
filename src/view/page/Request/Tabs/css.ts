@@ -6,7 +6,7 @@ export const containerCSS = css({
   padding: '0 4px',
   borderRadius: '6px',
   border: '1px solid rgba(0, 0, 0, 0.1)',
-  backgroundColor: 'rgba(250, 250, 250)',
+  backgroundColor: 'rgba(250, 250, 250)'
 })
 
 const buttonCSS = css({
@@ -14,14 +14,14 @@ const buttonCSS = css({
   backgroundColor: 'rgba(250, 250, 250)',
   transition: 'background-color 0.1s ease',
   ':active': {
-    backgroundColor: 'rgba(230, 230, 230)',
-  },
+    backgroundColor: 'rgba(230, 230, 230)'
+  }
 })
 
 export const operationCSS = cx(
   buttonCSS,
   css({
-    width: '32px',
+    width: '32px'
   })
 )
 
@@ -33,8 +33,8 @@ export const scrollerCSS = css({
   padding: '0 4px',
   '::-webkit-scrollbar': {
     width: 0,
-    height: 0,
-  },
+    height: 0
+  }
 })
 
 export const tabCSS = (active: boolean, animated: boolean) =>
@@ -46,13 +46,13 @@ export const tabCSS = (active: boolean, animated: boolean) =>
       padding: '0 8px',
       backgroundColor: active ? 'rgba(0, 100, 200)' : 'rgba(255, 255, 255)',
       color: active ? 'rgba(255, 255, 255)' : 'rgba(40, 60, 80)',
-      border:'1px solid rgba(0, 0, 0, 0.1)',
+      border: '1px solid rgba(0, 0, 0, 0.1)',
       // transition: 'background-color 0.1s ease, color 0.1s ease',
       transition: animated
         ? 'background-color 0.1s ease, color 0.1s ease'
         : 'none',
       ':active': {
-        backgroundColor: active ? 'rgba(0, 100, 200)' : 'rgba(255, 255, 255)',
+        backgroundColor: active ? 'rgba(0, 100, 200)' : 'rgba(255, 255, 255)'
       },
       span: {
         flexGrow: 0,
@@ -61,7 +61,7 @@ export const tabCSS = (active: boolean, animated: boolean) =>
         overflow: 'hidden',
         textOverflow: 'ellipsis',
         whiteSpace: 'nowrap',
-        color: 'inherit',
-      },
+        color: 'inherit'
+      }
     })
   )

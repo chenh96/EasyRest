@@ -24,7 +24,7 @@ export async function doRequest(request: RequestDetails): Promise<string> {
         headers: { 'Content-Type': 'application/json', ...headers },
         data: request.body,
         withCredentials: false,
-        timeout,
+        timeout
       })
       .then((data) => {
         if (data.status === 200) {

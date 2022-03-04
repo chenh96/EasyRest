@@ -6,7 +6,7 @@ import Load from '../../../../comp/Load'
 export default function RequestResult({
   request,
   requesting = false,
-  codeFont = 'inherit',
+  codeFont = 'inherit'
 }: {
   request: RequestDetails
   requesting?: boolean

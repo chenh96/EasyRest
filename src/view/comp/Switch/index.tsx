@@ -6,7 +6,7 @@ export default function Switch({
   options,
   value,
   onChange = () => {},
-  className,
+  className
 }: {
   options: { label: string; value: string }[]
   value?: string

@@ -18,7 +18,7 @@ export default function Config() {
       Promise.all([
         expectData('Timeout', 10000),
         expectData('MaxTabs', 10),
-        expectData('CodeFont', 'Consolas'),
+        expectData('CodeFont', 'Consolas')
       ])
         .then((results) => {
           setRequestTimeout(results[0])

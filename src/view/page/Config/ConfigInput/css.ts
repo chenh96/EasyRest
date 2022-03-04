@@ -8,17 +8,17 @@ export const containerCSS = css({
   backgroundColor: 'rgba(250, 250, 250)',
   width: '512px',
   margin: '4px',
-  padding: '0 8px',
+  padding: '0 8px'
 })
 
 export const titleCSS = css({
   fontWeight: 'bold',
-  lineHeight: '32px',
+  lineHeight: '32px'
 })
 
 export const commentCSS = css({
   lineHeight: '32px',
-  color: 'rgba(100, 120, 140)',
+  color: 'rgba(100, 120, 140)'
 })
 
 export const inputCSS = css({
@@ -27,5 +27,5 @@ export const inputCSS = css({
   right: '16px',
   top: 0,
   bottom: 0,
-  margin: 'auto',
+  margin: 'auto'
 })

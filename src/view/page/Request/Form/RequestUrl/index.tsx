@@ -10,14 +10,13 @@ import go from '../../../../asset/go.png'
 const METHODS: { label: string; value: RequestMethod }[] = [
   { label: 'GET', value: 'GET' },
   { label: 'POST', value: 'POST' },
-  { label: 'DELETE', value: 'DELETE' },
-  { label: 'PUT', value: 'PUT' },
+  { label: 'DELETE', value: 'DELETE' }
 ]
 
 export default function RequestUrl({
   request,
   onChange = () => {},
-  onRequest = () => {},
+  onRequest = () => {}
 }: {
   request: RequestDetails
   onChange?: (request: RequestDetails) => void

@@ -6,7 +6,7 @@ export default function ConfigInput({
   title,
   comment,
   value,
-  onInput = () => {},
+  onInput = () => {}
 }: {
   maxLength?: number
   title: string
