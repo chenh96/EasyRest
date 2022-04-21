@@ -10,3 +10,7 @@ declare global {
 export function openDevTools() {
   window.ipc.send('ShowDevTools')
 }
+
+export function openGithub() {
+  window.ipc.send('OpenGithub')
+}

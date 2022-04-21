@@ -1,21 +1,33 @@
-import { app, BrowserWindow } from 'electron'
+import { app, Menu, BrowserWindow } from 'electron'
 import { join } from 'path'
 import { addListeners } from './listener'
 
-app.whenReady().then(() => {
-  const window = new BrowserWindow({
-    minWidth: 800,
-    minHeight: 600,
-    autoHideMenuBar: true,
-    title: '',
-    webPreferences: {
-      webSecurity: false,
-      preload: join(__dirname, 'preload.js')
-    }
-  })
+!app.requestSingleInstanceLock()
+  ? app.quit()
+  : app.whenReady().then(() => {
+      Menu.setApplicationMenu(null)
 
-  // window.loadURL('http://127.0.0.1:3000/')
-  window.loadFile(join(__dirname, '/web/index.html'))
+      const window = new BrowserWindow({
+        minWidth: 800,
+        minHeight: 600,
+        autoHideMenuBar: true,
+        title: 'EasyRest',
+        webPreferences: {
+          webSecurity: false,
+          preload: join(__dirname, 'preload.js'),
+          spellcheck: false
+        }
+      })
 
-  addListeners(window)
-})
+      addListeners(window)
+
+      // window.loadURL('http://127.0.0.1:3000/')
+      window.loadFile(join(__dirname, '/web/index.html'))
+
+      app.on('second-instance', () => {
+        if (window.isMinimized()) {
+          window.restore()
+        }
+        window.focus()
+      })
+    })
