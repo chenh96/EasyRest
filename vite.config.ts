@@ -6,9 +6,10 @@ export default defineConfig({
   root: './src/view',
   base: './',
   server: {
-    host: true,
+    host: '127.0.0.1',
+    port: 8848
   },
   build: {
-    outDir: '../../out/compile/web',
-  },
+    outDir: '../../out/compile/web'
+  }
 })

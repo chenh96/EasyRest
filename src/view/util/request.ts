@@ -1,5 +1,4 @@
 import axios from 'axios'
-import json5 from 'json5'
 import { nanoid } from 'nanoid'
 import { deepCopy } from './json'
 import { expectData } from './store'
@@ -52,7 +51,7 @@ export async function fetch(request: RequestDetails): Promise<string> {
         params,
         headers,
         data,
-        timeout
+        timeout,
       })
       .then((data) => {
         if (data.status === 200) {
@@ -68,7 +67,15 @@ export async function fetch(request: RequestDetails): Promise<string> {
   })
 }
 
-export const RequestMethods = ['GET', 'POST', 'DELETE', 'PUT', 'PATCH', 'OPTIONS', 'HEAD'] as const
+export const RequestMethods = [
+  'GET',
+  'POST',
+  'DELETE',
+  'PUT',
+  'PATCH',
+  'OPTIONS',
+  'HEAD',
+] as const
 export type RequestMethod = typeof RequestMethods[number]
 
 export const DataTypes = ['Data', 'Params', 'Headers'] as const
@@ -84,7 +91,7 @@ export const MethodTypeSupports: { [key in RequestMethod]: DataType[] } = {
   PUT: ['Data', 'Params', 'Headers'],
   PATCH: ['Data', 'Params', 'Headers'],
   OPTIONS: ['Params', 'Headers'],
-  HEAD: ['Params', 'Headers']
+  HEAD: ['Params', 'Headers'],
 }
 
 export type RequestDetails = {
@@ -114,14 +121,14 @@ export function newRequest(): RequestDetails {
     data: [['', '']],
     files: [],
     body: '',
-    headers: [['', '']]
+    headers: [['', '']],
   }
 }
 
 export function copyOf(request: RequestDetails): RequestDetails {
   return {
     ...deepCopy(request),
-    id: nanoid()
+    id: nanoid(),
   }
 }
 
