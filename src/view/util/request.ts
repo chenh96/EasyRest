@@ -1,9 +1,19 @@
 import axios from 'axios'
 import { nanoid } from 'nanoid'
-import { formatAny, formatJson } from './json'
+import { formatAny } from './json'
 import { readData } from './store'
 import { isNotBlank } from './string'
 import { BasicType, VoidType } from './types'
+
+export const marks = [
+  'rgb(0, 0, 0)',
+  'rgb(255, 0, 0)',
+  'rgb(255, 150, 0)',
+  'rgb(0, 150, 0)',
+  'rgb(0, 150, 255)',
+  'rgb(150, 0, 255)'
+] as const
+export type Mark = typeof marks[number]
 
 export const requestMethods = ['GET', 'POST', 'DELETE', 'PUT', 'PATCH', 'OPTIONS', 'HEAD'] as const
 export type RequestMethod = typeof requestMethods[number]
@@ -45,6 +55,7 @@ export type Request = {
   files: FilePair[]
   result?: string
   duration?: number
+  mark: Mark
 }
 
 export const newRequest: () => Request = () => ({
@@ -57,7 +68,8 @@ export const newRequest: () => Request = () => ({
   params: [['', '']],
   json: '',
   form: [['', '']],
-  files: []
+  files: [],
+  mark: 'rgb(0, 0, 0)'
 })
 
 export const checkUrl = (url: string) => {

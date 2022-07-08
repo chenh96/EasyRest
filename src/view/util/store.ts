@@ -3,12 +3,14 @@ import localforage from 'localforage'
 import { newRequest } from './request'
 import { useCountDown } from './hooks'
 
+
+
 const defaults = {
   requests: [newRequest()],
   activated: 0,
   font: 'monospace',
   timeout: 10000,
-  wrap: false
+  wrap: true
 }
 
 export type StoreKey = keyof typeof defaults

@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { css } from '@emotion/css'
-import { getRequestTitle, Request } from '../../util/request'
+import { getRequestTitle, Mark, Request } from '../../util/request'
 import { ReactSortable } from 'react-sortablejs'
 import Button from '../../comp/Button'
 import Space from '../../comp/Space'
@@ -18,8 +18,27 @@ export default ({
 }) => {
   const [dragging, setDragging] = useState(false)
 
+  const scrollerRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    if (!scrollerRef.current) {
+      return
+    }
+
+    const scrollerHeight = scrollerRef.current.clientHeight
+    const scrollTop = scrollerRef.current.scrollTop
+
+    const minOffset = 30 * (activated + 1) + 10 - scrollerHeight
+    const maxOffset = 30 * activated
+
+    if (scrollTop < minOffset) {
+      scrollerRef.current.scrollTo({ top: minOffset, behavior: 'smooth' })
+    } else if (scrollTop > maxOffset) {
+      scrollerRef.current.scrollTo({ top: maxOffset, behavior: 'smooth' })
+    }
+  }, [activated])
+
   return (
-    <div className={style().container()}>
+    <div ref={scrollerRef} className={style().container()}>
       <ReactSortable
         className={style().list()}
         list={requests}
@@ -34,7 +53,7 @@ export default ({
             className={style().item(activated === index, dragging)}
             onClick={() => onActive(index)}
           >
-            <span className={style().index()}>{index + 1}</span>
+            <span className={style().index(request.mark)}>{index + 1}</span>
             <Space />
             <span>{getRequestTitle(request.url)}</span>
           </Button>
@@ -48,12 +67,13 @@ const style = () => {
   const container = () =>
     css({
       flex: 2,
-      overflow: 'hidden',
-      borderRight: '1px solid rgba(0, 0, 0, 0.2)',
+      borderRight: '1px solid rgba(40, 50, 60, 0.2)',
+      height: 'calc(100% - 41px)',
+      overflow: 'auto',
       padding: '5px'
     })
 
-  const list = () => css({ height: 'calc(100% - 41px)', overflow: 'auto' })
+  const list = () => css({})
 
   const item = (activated: boolean, dragging: boolean) =>
     css({
@@ -63,22 +83,22 @@ const style = () => {
       overflow: 'hidden',
       whiteSpace: 'nowrap',
       textOverflow: 'ellipsis',
-      backgroundColor: activated ? 'rgb(215, 215, 215)' : 'rgb(255, 255, 255)',
+      backgroundColor: activated ? 'rgb(214, 215, 216)' : 'rgb(255, 255, 255)',
       ':hover': {
         backgroundColor: dragging
           ? activated
-            ? 'rgb(215, 215, 215)'
+            ? 'rgb(214, 215, 216)'
             : 'rgb(255, 255, 255)'
           : activated
-          ? 'rgb(215, 215, 215)'
-          : 'rgb(235, 235, 235)'
+          ? 'rgb(214, 215, 216)'
+          : 'rgb(234, 235, 236)'
       },
       ':active': {
-        backgroundColor: dragging ? (activated ? 'rgb(215, 215, 215)' : 'rgb(255, 255, 255)') : 'rgb(215, 215, 215)'
+        backgroundColor: dragging ? (activated ? 'rgb(214, 215, 216)' : 'rgb(255, 255, 255)') : 'rgb(214, 215, 216)'
       }
     })
 
-  const index = () => css({ fontWeight: 'bold' })
+  const index = (mark: Mark) => css({ fontWeight: 'bold', color: mark })
 
   return { container, list, item, index }
 }

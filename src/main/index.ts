@@ -12,8 +12,8 @@ import { addIpcListeners } from './ipc'
         minWidth: 800,
         minHeight: 600,
         webPreferences: {
-          webSecurity: false,
           preload: join(__dirname, 'preload.js'),
+          webSecurity: false,
           spellcheck: false
         }
       })

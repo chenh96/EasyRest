@@ -30,14 +30,14 @@ const style = () => {
     css({
       minWidth: '100px',
       height: '30px',
-      border: '1px solid rgba(0, 0, 0, 0.2)',
-      borderRadius: '5px',
+      border: '1px solid rgba(40, 60, 80, 0.2)',
+      borderRadius: '2px',
       padding: '0 5px',
-      backgroundColor: 'rgb(245, 245, 245)',
+      backgroundColor: 'rgb(244, 245, 246)',
       cursor: 'text',
       transition: 'border 0.1s ease',
       ':hover': {
-        border: '1px solid rgba(0, 0, 0, 0.5)'
+        border: '1px solid rgba(40, 50, 60, 0.4)'
       },
       ':focus': {
         border: '1px solid rgb(0, 100, 200)'

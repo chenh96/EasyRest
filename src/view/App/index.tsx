@@ -37,6 +37,11 @@ export default () => {
                 setStore('requests', newRequests)
                 setStore('activated', activated > 0 ? activated - 1 : 0)
               }}
+              onMark={(mark) => {
+                const newRequests = [...requests]
+                newRequests.splice(activated, 1, { ...requests[activated], mark })
+                setStore('requests', newRequests)
+              }}
             />
 
             <Routes>
@@ -105,9 +110,12 @@ const style = () => {
           width: '10px',
           height: '10px'
         },
+        '::-webkit-scrollbar-corner': {
+          backgroundColor: 'transparent'
+        },
         '::-webkit-scrollbar-thumb': {
-          backgroundColor: 'rgb(235, 235, 235)',
-          border: '1px solid rgba(0, 0, 0, 0.1)',
+          backgroundColor: 'rgba(40, 50, 60, 0.05)',
+          border: '1px solid rgba(40, 50, 60, 0.1)',
           borderRadius: '5px'
         }
       }

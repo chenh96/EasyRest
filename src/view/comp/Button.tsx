@@ -13,30 +13,30 @@ export default ({
   disabled?: boolean
 }) => {
   return (
-    <button className={cx(style().container(), className)} onClick={onClick} disabled={disabled}>
+    <button className={cx(style().container(disabled), className)} onClick={onClick} disabled={disabled}>
       {children}
     </button>
   )
 }
 
 const style = () => {
-  const container = () =>
+  const container = (disabled: boolean) =>
     css({
       display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',
       height: '30px',
       padding: '0 10px',
-      background: 'none',
       border: 'none',
-      borderRadius: '5px',
-      cursor: 'pointer',
+      background: 'none',
+      borderRadius: '2px',
+      cursor: disabled ? 'default' : 'pointer',
       transition: 'background-color 0.1s ease',
       ':hover': {
-        backgroundColor: 'rgb(235, 235, 235)'
+        backgroundColor: disabled ? 'none' : 'rgb(234, 235, 236)'
       },
       ':active': {
-        backgroundColor: 'rgb(215, 215, 215)'
+        backgroundColor: disabled ? 'none' : 'rgb(214, 215, 216)'
       }
     })
 

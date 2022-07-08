@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { css } from '@emotion/css'
 import { Request } from '../../util/request'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
@@ -26,7 +25,9 @@ export default ({
         duration={request.duration ?? -1}
       />
 
-      <textarea className={style().content(wrap, font)} value={request.result ?? ''} onInput={() => {}} />
+      <pre className={style().content(wrap, font)}>
+        <code>{request.result}</code>
+      </pre>
     </div>
   )
 }
@@ -80,7 +81,6 @@ const style = () => {
     css({
       height: '40px',
       padding: '5px',
-      borderBottom: '1px solid rgba(0, 0, 0, 0.2)',
       whiteSpace: 'nowrap',
       overflow: 'hidden',
       textOverflow: 'ellipsis'
@@ -96,23 +96,22 @@ const style = () => {
 
   const wrapper = (wrap: boolean) =>
     css({
-      backgroundColor: wrap ? 'rgb(215, 215, 215)' : 'rgb(255, 255, 255)',
+      backgroundColor: wrap ? 'rgb(214, 215, 216)' : 'rgb(255, 255, 255)',
       ':hover': {
-        backgroundColor: wrap ? 'rgb(215, 215, 215)' : 'rgb(235, 235, 235)'
+        backgroundColor: wrap ? 'rgb(214, 215, 216)' : 'rgb(234, 235, 236)'
       }
     })
 
   const content = (wrap: boolean, font: string) =>
     css({
-      width: 'calc(100% - 10px)',
-      height: 'calc(100% - 92px)',
-      resize: 'none',
-      border: 'none',
+      width: '100%',
+      height: 'calc(100% - 81px)',
+      margin: 0,
+      userSelect: 'text',
       padding: '5px',
       fontFamily: font,
       cursor: 'auto',
       overflow: 'auto',
-      margin: '5px',
       whiteSpace: wrap ? 'pre-wrap' : 'pre',
       wordBreak: 'break-all'
     })

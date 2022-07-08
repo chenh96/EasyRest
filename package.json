@@ -1,6 +1,6 @@
 {
   "name": "easyrest",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": "chenh",
   "description": "(Api Testing Tool) Desktop application for requesting restful api.",
   "main": "./dist/compile/main/index.js",
@@ -9,7 +9,6 @@
     "dev:main": "tsc -p ./src/main/tsconfig.json && electron .",
     "build:view": "tsc -p ./src/view/tsconfig.json && vite build",
     "build:main": "tsc -p ./src/main/tsconfig.json && electron-builder",
-    "preview:main": "npm run build:view && npm run dev:main",
     "build": "npm run build:view && npm run build:main"
   },
   "dependencies": {

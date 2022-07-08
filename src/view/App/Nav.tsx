@@ -1,11 +1,22 @@
 import { Link, useLocation } from 'react-router-dom'
 import { css } from '@emotion/css'
+import { toggleDevTools } from '../util/ipc'
+import { Mark, marks } from '../util/request'
 import { BsArrowLeftCircle, BsGear, BsBug, BsPlusCircle, BsStickies, BsTrash } from 'react-icons/bs'
 import Space from '../comp/Space'
 import Button from '../comp/Button'
-import { toggleDevTools } from '../util/ipc'
 
-export default ({ onAdd, onCopy, onRemove }: { onAdd: () => void; onCopy: () => void; onRemove: () => void }) => {
+export default ({
+  onAdd,
+  onCopy,
+  onRemove,
+  onMark
+}: {
+  onAdd: () => void
+  onCopy: () => void
+  onRemove: () => void
+  onMark: (mark: Mark) => void
+}) => {
   const location = useLocation()
 
   return (
@@ -40,21 +51,31 @@ export default ({ onAdd, onCopy, onRemove }: { onAdd: () => void; onCopy: () => 
         <>
           <div className={style().separator()}></div>
 
-          <Button onClick={onAdd}>
+          <Button onClick={onAdd} className={style().add()}>
             <BsPlusCircle />
             <Space />
             <span>新增</span>
           </Button>
-          <Button onClick={onCopy}>
+          <Button onClick={onCopy} className={style().copy()}>
             <BsStickies />
             <Space />
             <span>复制</span>
           </Button>
-          <Button onClick={onRemove}>
+          <Button onClick={onRemove} className={style().remove()}>
             <BsTrash />
             <Space />
             <span>删除</span>
           </Button>
+        </>
+      )}
+
+      {location.pathname === '/' && (
+        <>
+          <div className={style().separator()}></div>
+
+          {marks.map((mark) => (
+            <Button className={style().marker(mark)} onClick={() => onMark(mark)}></Button>
+          ))}
         </>
       )}
     </nav>
@@ -62,7 +83,7 @@ export default ({ onAdd, onCopy, onRemove }: { onAdd: () => void; onCopy: () => 
 }
 
 const style = () => {
-  const container = () => css({ borderBottom: '1px solid rgba(0, 0, 0, 0.2)', padding: '5px' })
+  const container = () => css({ borderBottom: '1px solid rgba(40, 50, 60, 0.2)', padding: '5px' })
 
   const separator = () =>
     css({
@@ -71,8 +92,34 @@ const style = () => {
       height: '20px',
       margin: '5px',
       borderRadius: '1px',
-      backgroundColor: 'rgba(0, 0, 0, 0.2)'
+      backgroundColor: 'rgba(40, 50, 60, 0.2)'
     })
 
-  return { container, separator }
+  const add = () => css({ color: 'rgb(0, 150, 0)' })
+
+  const copy = () => css({ color: 'rgb(255, 150, 0)' })
+
+  const remove = () => css({ color: 'rgb(255, 0, 0)' })
+
+  const marker = (color: string) =>
+    css({
+      marginTop: '7.5px',
+      padding: 0,
+      width: '15px',
+      height: '15px',
+      borderRadius: '10px',
+      marginLeft: '10px',
+      backgroundColor: color,
+      transition: 'transform 0.2s ease',
+      ':hover': {
+        backgroundColor: color,
+        transform: 'scale(1.2)'
+      },
+      ':active': {
+        backgroundColor: color,
+        transform: 'scale(1.1)'
+      }
+    })
+
+  return { container, separator, add, copy, remove, marker }
 }

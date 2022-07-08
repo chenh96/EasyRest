@@ -74,18 +74,18 @@ const style = () => {
       alignItems: 'center',
       minWidth: '100px',
       height: '30px',
-      border: '1px solid rgba(0, 0, 0, 0.2)',
-      borderRadius: '5px',
+      border: '1px solid rgba(40, 50, 60, 0.2)',
+      borderRadius: '2px',
       padding: '0 22px 0 10px',
-      backgroundColor: 'rgb(245, 245, 245)',
+      backgroundColor: 'rgb(244, 245, 246)',
       cursor: 'pointer',
       zIndex: 2,
       transition: 'background-color 0.1s ease',
       ':hover': {
-        backgroundColor: 'rgb(235, 235, 235)'
+        backgroundColor: 'rgb(234, 235, 236)'
       },
       ':active': {
-        backgroundColor: 'rgb(215, 215, 215)'
+        backgroundColor: 'rgb(214, 215, 216)'
       }
     })
 
@@ -134,8 +134,8 @@ const style = () => {
       top: 'calc(100% - 1px)',
       backgroundColor: 'rgb(255, 255, 255)',
       boxShadow: '0 5px 15px rgba(0, 0, 0, 0.2)',
-      border: '1px solid rgba(0, 0, 0, 0.2)',
-      borderRadius: '5px',
+      border: '1px solid rgba(40, 50, 60, 0.2)',
+      borderRadius: '2px',
       overflow: 'hidden',
       opacity: show ? 1 : 0,
       transform: show ? 'none' : 'translateY(-25%)',
@@ -155,10 +155,10 @@ const style = () => {
       cursor: 'pointer',
       transition: 'background-color 0.1s ease',
       ':hover': {
-        backgroundColor: 'rgb(235, 235, 235)'
+        backgroundColor: 'rgb(234, 235, 236)'
       },
       ':active': {
-        backgroundColor: 'rgb(215, 215, 215)'
+        backgroundColor: 'rgb(214, 215, 216)'
       }
     })
 

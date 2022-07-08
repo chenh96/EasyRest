@@ -121,7 +121,7 @@ const URL = ({
       <Space />
       <Input className={style().urlInput()} value={url} onInput={onEditUrl} />
       <Space />
-      <Button className={style().requester()} onClick={onRequest} disabled={requesting}>
+      <Button className={style().requester(requesting)} onClick={onRequest} disabled={requesting}>
         {requesting ? <BsArrowRepeat className={style().requesting()} /> : <BsGlobe />}
         <Space />
         <span>请求</span>
@@ -279,50 +279,26 @@ const style = () => {
       flex: 4,
       minWidth: '400px',
       height: 'calc(100% - 41px)',
-      borderRight: '1px solid rgba(0, 0, 0, 0.2)',
+      borderRight: '1px solid rgba(40, 50, 60, 0.2)',
       padding: '5px'
-    })
-
-  const topBar = () =>
-    css({
-      padding: '5px',
-      '> button': {
-        display: 'inline-flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '0 10px',
-        height: '30px',
-        background: 'none',
-        border: 'none',
-        borderRadius: '5px',
-        cursor: 'pointer',
-        transition: 'background-color 0.1s ease',
-        ':hover': {
-          backgroundColor: 'rgb(235, 235, 235)'
-        },
-        ':active': {
-          backgroundColor: 'rgb(215, 215, 215)'
-        }
-      }
     })
 
   const url = () => css({ display: 'flex' })
 
-  const methodSelector = () => css({ borderRadius: '5px 0 0 5px' })
+  const methodSelector = () => css({})
 
-  const urlInput = () => css({ flex: 1, borderRadius: 0 })
+  const urlInput = () => css({ flex: 1 })
 
-  const requester = () =>
+  const requester = (disabled: boolean) =>
     css({
-      border: '1px solid rgba(0, 0, 0, 0.2)',
+      border: '1px solid rgba(40, 50, 60, 0.2)',
       backgroundColor: 'rgb(0, 100, 200)',
       color: 'rgb(255, 255, 255)',
-      borderRadius: '0 5px 5px 0',
       ':hover': {
-        backgroundColor: 'rgb(0, 80, 180)'
+        backgroundColor: disabled ? 'rgb(0, 100, 200)' : 'rgb(0, 90, 190)'
       },
       ':active': {
-        backgroundColor: 'rgb(0, 60, 160)'
+        backgroundColor: disabled ? 'rgb(0, 100, 200)' : 'rgb(0, 70, 170)'
       }
     })
 
@@ -340,9 +316,9 @@ const style = () => {
 
   const dataTypeSelector = () => css({ whiteSpace: 'nowrap', overflow: 'hidden' })
 
-  const bodyOperator = () => css({ border: '1px solid rgba(0, 0, 0, 0.2)', backgroundColor: 'rgb(245, 245, 245)' })
+  const bodyOperator = () => css({ border: '1px solid rgba(40, 50, 60, 0.2)', backgroundColor: 'rgb(244, 245, 246)' })
 
-  const pairs = () => css({ maxHeight: 'calc(100% - 70px)', overflow: 'auto' })
+  const pairs = () => css({ maxHeight: 'calc(100% - 70px)', overflow: 'auto', margin: '0 -5px', padding: '0 5px' })
 
   const pair = () =>
     css({
@@ -354,11 +330,11 @@ const style = () => {
       }
     })
 
-  const pairKey = () => css({ flex: '35% 1 1', borderRadius: '5px 0 0 5px' })
+  const pairKey = () => css({ flex: '35% 1 1' })
 
-  const pairValue = () => css({ flex: '65% 1 1', borderRadius: '0 5px 5px 0' })
+  const pairValue = () => css({ flex: '65% 1 1' })
 
-  const pairRemove = () => css({ width: '30px', padding: 0 })
+  const pairRemove = () => css({ flexShrink: 0, width: '30px', padding: 0 })
 
   const fileValue = () => cx(pairValue(), css({ paddingRight: '25px' }))
 
@@ -367,18 +343,22 @@ const style = () => {
 
   const json = (font: string) =>
     css({
+      display: 'table-column',
       width: '100%',
       height: 'calc(100% - 70px)',
       resize: 'none',
-      border: '1px solid rgba(0, 0, 0, 0.2)',
-      borderRadius: '5px',
+      border: '1px solid rgba(40, 50, 60, 0.2)',
+      borderRadius: '2px',
       padding: '5px',
-      backgroundColor: 'rgb(245, 245, 245)',
+      backgroundColor: 'rgb(244, 245, 246)',
+      overflow: 'auto',
+      whiteSpace: 'pre-wrap',
+      wordBreak: 'break-all',
       fontFamily: font,
       cursor: 'auto',
       transition: 'border 0.1s ease',
       ':hover': {
-        border: '1px solid rgba(0, 0, 0, 0.5)'
+        border: '1px solid rgba(40, 50, 60, 0.4)'
       },
       ':focus': {
         border: '1px solid rgb(0, 100, 200)'
@@ -387,7 +367,6 @@ const style = () => {
 
   return {
     container,
-    topBar,
     url,
     methodSelector,
     urlInput,
