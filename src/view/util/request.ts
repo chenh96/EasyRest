@@ -25,7 +25,7 @@ export const bodyTypes = ['JSON', 'FormData'] as const
 export type BodyType = typeof bodyTypes[number]
 
 export const getDataTypesOfMethod = (method: RequestMethod) => {
-  const dataTypesOfMethod: { [key in RequestMethod]: DataType[] } = {
+  const dataTypesOfMethod: { [Key in RequestMethod]: DataType[] } = {
     GET: ['Params', 'Headers'],
     POST: ['Params', 'Body', 'Headers'],
     DELETE: ['Params', 'Headers'],

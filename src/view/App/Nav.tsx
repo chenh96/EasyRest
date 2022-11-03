@@ -2,7 +2,14 @@ import { Link, useLocation } from 'react-router-dom'
 import { css } from '@emotion/css'
 import { toggleDevTools } from '../util/ipc'
 import { Mark, marks } from '../util/request'
-import { BsArrowLeftCircle, BsGear, BsBug, BsPlusCircle, BsStickies, BsTrash } from 'react-icons/bs'
+import {
+  BsArrowLeftCircle,
+  BsGear,
+  BsBug,
+  BsPlusCircle,
+  BsStickies,
+  BsTrash
+} from 'react-icons/bs'
 import Space from '../comp/Space'
 import Button from '../comp/Button'
 
@@ -74,7 +81,10 @@ export default ({
           <div className={style().separator()}></div>
 
           {marks.map((mark) => (
-            <Button className={style().marker(mark)} onClick={() => onMark(mark)}></Button>
+            <Button
+              className={style().marker(mark)}
+              onClick={() => onMark(mark)}
+            ></Button>
           ))}
         </>
       )}
@@ -83,7 +93,16 @@ export default ({
 }
 
 const style = () => {
-  const container = () => css({ borderBottom: '1px solid rgba(40, 50, 60, 0.2)', padding: '5px' })
+  const container = () =>
+    css({
+      borderBottom: '1px solid rgba(40, 50, 60, 0.2)',
+      padding: '5px',
+      userSelect: 'none',
+      '-webkit-app-region': 'drag',
+      'button': {
+        '-webkit-app-region': 'no-drag'
+      }
+    })
 
   const separator = () =>
     css({

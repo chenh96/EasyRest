@@ -11,13 +11,11 @@ export default ({
   className?: string
   children?: TsxChildren
   disabled?: boolean
-}) => {
-  return (
-    <button className={cx(style().container(disabled), className)} onClick={onClick} disabled={disabled}>
-      {children}
-    </button>
-  )
-}
+}) => (
+  <button className={cx(style().container(disabled), className)} onClick={onClick} disabled={disabled}>
+    {children}
+  </button>
+)
 
 const style = () => {
   const container = (disabled: boolean) =>

@@ -13,17 +13,15 @@ export default <T extends string | number>({
   disabled?: boolean
   type?: HTMLInputTypeAttribute
   className?: string
-}) => {
-  return (
-    <input
-      className={cx(style().container(), className)}
-      value={value}
-      onInput={(e) => onInput?.(e.currentTarget.value as T)}
-      type={type}
-      disabled={disabled}
-    />
-  )
-}
+}) => (
+  <input
+    className={cx(style().container(), className)}
+    value={value}
+    onInput={(e) => onInput?.(e.currentTarget.value as T)}
+    type={type}
+    disabled={disabled}
+  />
+)
 
 const style = () => {
   const container = () =>

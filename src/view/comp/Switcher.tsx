@@ -13,21 +13,19 @@ export default <E extends BasicType>({
   onSwitch?: (value: E) => void
   containerClass?: string
   itemClass?: string
-}) => {
-  return (
-    <div className={cx(style().container(), containerClass)}>
-      {options.map((option) => (
-        <button
-          key={`${option}`}
-          className={cx(style().item(value === option), itemClass)}
-          onClick={() => onSwitch?.(option)}
-        >
-          {option}
-        </button>
-      ))}
-    </div>
-  )
-}
+}) => (
+  <div className={cx(style().container(), containerClass)}>
+    {options.map((option) => (
+      <button
+        key={`${option}`}
+        className={cx(style().item(value === option), itemClass)}
+        onClick={() => onSwitch?.(option)}
+      >
+        {option}
+      </button>
+    ))}
+  </div>
+)
 
 const style = () => {
   const container = () =>

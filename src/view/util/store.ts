@@ -3,8 +3,6 @@ import localforage from 'localforage'
 import { newRequest } from './request'
 import { useCountDown } from './hooks'
 
-
-
 const defaults = {
   requests: [newRequest()],
   activated: 0,

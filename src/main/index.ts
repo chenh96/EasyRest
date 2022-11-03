@@ -11,6 +11,12 @@ import { addIpcListeners } from './ipc'
         title: 'EasyRest',
         minWidth: 800,
         minHeight: 600,
+        titleBarStyle: 'hidden',
+        titleBarOverlay: {
+          color: '#fff',
+          symbolColor: '#000',
+          height: 41
+        },
         webPreferences: {
           preload: join(__dirname, 'preload.js'),
           webSecurity: false,

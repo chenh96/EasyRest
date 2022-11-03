@@ -1,8 +1,8 @@
 import { css } from '@emotion/css'
 
-export default ({ size = 5, vertical = false }: { size?: number; vertical?: boolean }) => {
-  return <div className={style().container(size, vertical)}></div>
-}
+export default ({ size = 5, vertical = false }: { size?: number; vertical?: boolean }) => (
+  <div className={style().container(size, vertical)}></div>
+)
 
 const style = () => {
   const container = (size: number, vertical: boolean) =>
