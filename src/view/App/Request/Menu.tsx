@@ -94,7 +94,11 @@ const style = () => {
           : 'rgb(234, 235, 236)'
       },
       ':active': {
-        backgroundColor: dragging ? (activated ? 'rgb(214, 215, 216)' : 'rgb(255, 255, 255)') : 'rgb(214, 215, 216)'
+        backgroundColor: dragging
+          ? activated
+            ? 'rgb(214, 215, 216)'
+            : 'rgb(255, 255, 255)'
+          : 'rgb(214, 215, 216)'
       }
     })
 
