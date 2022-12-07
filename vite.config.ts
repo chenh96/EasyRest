@@ -7,5 +7,8 @@ export default defineConfig({
   root: './src/view',
   build: {
     outDir: '../../dist/compile/view'
+  },
+  server: {
+    port: 3000
   }
 })

@@ -26,7 +26,7 @@ import { addIpcListeners } from './ipc'
 
       addIpcListeners(window)
 
-      // window.loadURL('http://127.0.0.1:3000/')
+      // window.loadURL('http://localhost:3000/')
       window.loadFile(join(__dirname, '../view/index.html'))
 
       app.on('second-instance', () => {

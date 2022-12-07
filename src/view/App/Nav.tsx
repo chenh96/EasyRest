@@ -12,6 +12,7 @@ import {
 } from 'react-icons/bs'
 import Space from '../comp/Space'
 import Button from '../comp/Button'
+import logoImg from '../img/logo.png'
 
 export default ({
   onAdd,
@@ -28,6 +29,16 @@ export default ({
 
   return (
     <nav className={style().container()}>
+      <Link to="/" draggable={false}>
+        <Button className={style().logo()}>
+          <img src={logoImg} />
+          <Space />
+          <span>EasyRest</span>
+        </Button>
+      </Link>
+
+      <div className={style().separator()}></div>
+
       {location.pathname === '/config' && (
         <Link to="/" draggable={false}>
           <Button>
@@ -99,8 +110,20 @@ const style = () => {
       padding: '5px',
       userSelect: 'none',
       '-webkit-app-region': 'drag',
-      'button': {
+      button: {
         '-webkit-app-region': 'no-drag'
+      }
+    })
+
+  const logo = () =>
+    css({
+      span: {
+        color: 'rgba(40,180,180)',
+        fontWeight: 'bold'
+      },
+      img: {
+        width: '16px',
+        height: '16px'
       }
     })
 
@@ -140,5 +163,5 @@ const style = () => {
       }
     })
 
-  return { container, separator, add, copy, remove, marker }
+  return { container, logo, separator, add, copy, remove, marker }
 }

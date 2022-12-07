@@ -277,7 +277,7 @@ const style = () => {
   const container = () =>
     css({
       flex: 4,
-      minWidth: '400px',
+      minWidth: '416px',
       height: 'calc(100% - 41px)',
       borderRight: '1px solid rgba(40, 50, 60, 0.2)',
       padding: '5px'
