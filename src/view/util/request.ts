@@ -11,11 +11,19 @@ export const marks = [
   'rgb(255, 150, 0)',
   'rgb(0, 150, 0)',
   'rgb(0, 150, 255)',
-  'rgb(150, 0, 255)'
+  'rgb(150, 0, 255)',
 ] as const
 export type Mark = typeof marks[number]
 
-export const requestMethods = ['GET', 'POST', 'DELETE', 'PUT', 'PATCH', 'OPTIONS', 'HEAD'] as const
+export const requestMethods = [
+  'GET',
+  'POST',
+  'DELETE',
+  'PUT',
+  'PATCH',
+  'OPTIONS',
+  'HEAD',
+] as const
 export type RequestMethod = typeof requestMethods[number]
 
 export const dataTypes = ['Params', 'Body', 'Headers'] as const
@@ -32,7 +40,7 @@ export const getDataTypesOfMethod = (method: RequestMethod) => {
     PUT: ['Params', 'Body', 'Headers'],
     PATCH: ['Params', 'Body', 'Headers'],
     OPTIONS: ['Params', 'Headers'],
-    HEAD: ['Params', 'Headers']
+    HEAD: ['Params', 'Headers'],
   }
   return dataTypesOfMethod[method]
 }
@@ -69,7 +77,7 @@ export const newRequest: () => Request = () => ({
   json: '',
   form: [['', '']],
   files: [],
-  mark: 'rgb(0, 0, 0)'
+  mark: 'rgb(0, 0, 0)',
 })
 
 export const checkUrl = (url: string) => {
@@ -90,8 +98,16 @@ export const getRequestTitle = (url: string) => {
 
 const pairsToObject = <V>(pairs: [string, V][]) => {
   const obj: { [key: string]: V } = {}
-  pairs.filter((pair) => isNotBlank(pair[0])).forEach((pair) => (obj[pair[0]] = pair[1]))
+  pairs
+    .filter((pair) => isNotBlank(pair[0]))
+    .forEach((pair) => (obj[pair[0]] = pair[1]))
   return obj
+}
+
+const pairsToFormData = (pairs: [string, string | File][]) => {
+  const formData = new FormData()
+  pairs.forEach(([key, val]) => formData.append(key, val))
+  return formData
 }
 
 export const doRequest = async (request: Request) => {
@@ -103,16 +119,21 @@ export const doRequest = async (request: Request) => {
         method: request.method,
         headers: getDataTypesOfMethod(request.method).includes('Headers')
           ? {
-              'content-type': request.bodyType === 'FormData' ? 'multipart/form-data ' : 'application/json',
-              ...pairsToObject(request.headers)
+              'content-type':
+                request.bodyType === 'FormData'
+                  ? 'multipart/form-data '
+                  : 'application/json',
+              ...pairsToObject(request.headers),
             }
           : undefined,
-        params: getDataTypesOfMethod(request.method).includes('Params') ? pairsToObject(request.params) : undefined,
+        params: getDataTypesOfMethod(request.method).includes('Params')
+          ? pairsToObject(request.params)
+          : undefined,
         data: getDataTypesOfMethod(request.method).includes('Body')
           ? request.bodyType === 'FormData'
-            ? request.form
+            ? pairsToFormData([...request.form, ...request.files])
             : request.json
-          : undefined
+          : undefined,
       })
       .then((response) => resolve(formatAny(response.data)))
       .catch((err) => resolve(formatAny(err.message)))

@@ -8,7 +8,7 @@ import {
   BsBug,
   BsPlusCircle,
   BsStickies,
-  BsTrash
+  BsTrash,
 } from 'react-icons/bs'
 import Space from '../comp/Space'
 import Button from '../comp/Button'
@@ -18,7 +18,7 @@ export default ({
   onAdd,
   onCopy,
   onRemove,
-  onMark
+  onMark,
 }: {
   onAdd: () => void
   onCopy: () => void
@@ -93,6 +93,7 @@ export default ({
 
           {marks.map((mark) => (
             <Button
+              key={mark}
               className={style().marker(mark)}
               onClick={() => onMark(mark)}
             ></Button>
@@ -111,20 +112,20 @@ const style = () => {
       userSelect: 'none',
       '-webkit-app-region': 'drag',
       button: {
-        '-webkit-app-region': 'no-drag'
-      }
+        '-webkit-app-region': 'no-drag',
+      },
     })
 
   const logo = () =>
     css({
       span: {
         color: 'rgba(40,180,180)',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
       },
       img: {
         width: '16px',
-        height: '16px'
-      }
+        height: '16px',
+      },
     })
 
   const separator = () =>
@@ -134,7 +135,7 @@ const style = () => {
       height: '20px',
       margin: '5px',
       borderRadius: '1px',
-      backgroundColor: 'rgba(40, 50, 60, 0.2)'
+      backgroundColor: 'rgba(40, 50, 60, 0.2)',
     })
 
   const add = () => css({ color: 'rgb(0, 150, 0)' })
@@ -155,12 +156,12 @@ const style = () => {
       transition: 'transform 0.2s ease',
       ':hover': {
         backgroundColor: color,
-        transform: 'scale(1.2)'
+        transform: 'scale(1.2)',
       },
       ':active': {
         backgroundColor: color,
-        transform: 'scale(1.1)'
-      }
+        transform: 'scale(1.1)',
+      },
     })
 
   return { container, logo, separator, add, copy, remove, marker }
