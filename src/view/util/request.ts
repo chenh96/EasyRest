@@ -133,6 +133,8 @@ export const doRequest = async (request: Request) => {
           ? request.bodyType === 'FormData'
             ? pairsToFormData([...request.form, ...request.files])
             : request.json
+            ? JSON.stringify(JSON.parse(request.json))
+            : undefined
           : undefined,
       })
       .then((response) => resolve(formatAny(response.data)))
