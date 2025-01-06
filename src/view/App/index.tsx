@@ -94,7 +94,7 @@ const style = () => {
       color: 'rgb(0, 0, 0)',
       cursor: 'default',
       userSelect: 'none',
-      fontSize: '12px',
+      fontSize: 'small',
       fontFamily: 'system-ui',
       '*': {
         boxSizing: 'border-box',
