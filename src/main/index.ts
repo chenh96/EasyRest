@@ -15,7 +15,7 @@ import { addIpcListeners } from './ipc'
         titleBarOverlay: {
           color: '#fff',
           symbolColor: '#000',
-          height: 41
+          height: 40
         },
         webPreferences: {
           preload: join(__dirname, 'preload.js'),
